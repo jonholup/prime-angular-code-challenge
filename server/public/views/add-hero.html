@@ -1,1 +1,23 @@
 <p>ADD NEW HERO</p>
+
+
+<form name="form-inline">
+      <div class ="row">
+        <div class="form-group col-sm-4">
+          <label for="persona" class="col-sm-4">Persona:</label>
+          <input name="persona" class="col-sm-8" ng-model="ahc.newHero.persona">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="alias" class="col-sm-4">Alias:</label>
+          <input name="field" class="col-sm-8" ng-model="ahc.newHero.alias">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="power_id" class="col-sm-4">Power ID:</label>
+          <input name="field" class="col-sm-8" ng-model="ahc.newHero.power_id"type="number">
+        </div>
+      </div>
+      <div class="row">
+        <div "form-group col-sm-12 text-center">
+          <button class="btn btn-success col-sm-4" ng-click="ahc.addHero(ahc.newHero)">Submit</button>
+        </div>
+    </form>
