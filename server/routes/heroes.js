@@ -6,6 +6,7 @@ var pool = require('../config/database-pool.js'); // Creates database pool, if y
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
+      console.log('hit get route');
       client.query('SELECT heroes.*, super_powers.name, super_powers.description FROM heroes JOIN super_powers ON heroes.power_id = super_powers.id')
         .then(function (result) {
           client.release();
