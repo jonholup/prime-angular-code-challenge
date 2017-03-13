@@ -3,8 +3,9 @@ app.controller('HeroListController', ['$http', function($http){
     var self = this;
     self.heroes = { list: []};
 
-
     getHeros();
+
+
     function getHeros() {
   $http({
     method: 'GET',
@@ -13,11 +14,16 @@ app.controller('HeroListController', ['$http', function($http){
     console.log('this is response.data from factory',response.data);
     console.log('this is response from factory', response);
     self.heroes.list = response.data;
-    // factoryTasks = {
-  //   list: [{name: 'sleep', id: 1}, {name: 'wake up', id: 2}]
-  // }
-
   });
 }
+
+self.deleteHero = function deleteHero(heroId) {
+  $http({
+    method: 'DELETE',
+    url: '/heroes/' + heroId
+  }).then(function(response) {
+    getHeros();
+  });
+}; // ends deletePerson function
 
 }]);
